@@ -12,7 +12,7 @@ function App() {
       <Container>
         <Grid container spacing={2}>
           {/* First Column - 1/6 Width */}
-          <Grid item xs={12} md={2} sx={{ width: '100%' }}>
+          <Grid  item xs={12} md={2} sx={{ width: '100%' }}>
             <Navbar></Navbar>
           </Grid>
 
