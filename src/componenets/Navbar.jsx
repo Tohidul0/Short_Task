@@ -1,5 +1,5 @@
 
-import { Container, Divider, useMediaQuery, useTheme } from '@mui/material';
+import { Container, Divider, TextField, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import HouseTwoToneIcon from '@mui/icons-material/HouseTwoTone';
 import CreditScoreTwoToneIcon from '@mui/icons-material/CreditScoreTwoTone';
@@ -19,14 +19,23 @@ function Navbar(props) {
     const secondaryColor = '#17998C';
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+    const isMd = useMediaQuery(theme.breakpoints.up('md'));
+
     return (
         <div style={{ backgroundColor:secondaryColor, color:'white', textAlign: 'center', height: isMobile ? '15vh' : '100vh',borderRadius: '10px' }}>
-            <Container style={{paddingTop:'15px'}}>
+            <Container style={{paddingTop:'15px'}} sx={{ display: isMd ? 'block' : 'flex', overflow: isMd ? 'hidden'  : 'scroll'}}  >
                 <img style={{width:'45', height:'35px', borderRadius:'100%'}} src="/logo.jpg"/>
                 <Divider style={{marginBottom:'20px',marginTop:'10px' , backgroundColor:'white'}}></Divider>
+
                 <div style={{paddingRight:'5px',color:'black', paddingLeft:'5px',  width:'125px', display:'flex', justifyContent:'space-between', alignItems:'center', borderColor:'white', borderRadius: '10px', backgroundColor : 'white'}}>
-                                <ImageSearchTwoToneIcon/>
-                                <p style={{fontSize:'14px'}}>65,215 AED</p>
+                                <ImageSearchTwoToneIcon style={{opacity:'0.5'}}/>
+                                <TextField
+                                    hiddenLabel
+                                    style={{backgroundColor:'white'}}
+                                    defaultValue="Search Pad"
+                                    variant="standard"
+                                    size="small"
+                                />
                 </div>
                 <div style={{display:'flex', alignItems:'center'}}>
                     <HouseTwoToneIcon/>
